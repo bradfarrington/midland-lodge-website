@@ -84,10 +84,10 @@ p { margin: 0; }
 .nav.solid { background: color-mix(in srgb, var(--stone-100) 94%, transparent); color: var(--ink); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: var(--hairline) solid var(--stone-300); padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px; }
 .wordmark { display: block; width: 210px; height: auto; color: inherit; }
 .wordmark svg { display: block; width: 100%; height: auto; fill: currentColor; }
-.nav-links { display: flex; gap: var(--space-8); list-style: none; margin: 0; padding: 0; }
+.nav-links { display: flex; gap: var(--space-8); list-style: none; margin: 0; padding: 0; white-space: nowrap; }
 .nav-links a { text-decoration: none; opacity: .85; transition: opacity .2s; }
 .nav-links a:hover { opacity: 1; }
-.nav .btn { padding: 10px 16px; font-size: 12px; }
+.nav .btn { padding: 10px 16px; font-size: 12px; white-space: nowrap; }
 .nav:not(.solid) .btn { border-color: color-mix(in srgb, var(--stone-100) 70%, transparent); }
 .nav.solid .btn { background: var(--park); border-color: var(--park); color: var(--stone-100); }
 .burger { display: none; width: 44px; height: 44px; border: 0; background: none; color: inherit; cursor: pointer; position: relative; z-index: 60; }
@@ -233,10 +233,13 @@ footer .fine { color: var(--stone-300); max-width: 40em; }
 .reveal { transition: opacity 1s ease, transform 1s ease; }
 .js .reveal.pending { opacity: .001; transform: translateY(24px); }
 
-@media (max-width: 860px) {
-  .nav { padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+@media (max-width: 1180px) {
+  .nav { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
   .nav-links, .nav > .btn { display: none; }
   .burger { display: block; }
+}
+@media (max-width: 860px) {
+  .nav { padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
   .wordmark { width: 168px; }
   .split { grid-template-columns: 1fr; gap: var(--space-16); }
   .facts { grid-template-columns: 1fr 1fr; }
